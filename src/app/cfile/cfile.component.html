@@ -1,0 +1,22 @@
+<div class="text-center">
+    <h1>File upload</h1>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <label>Name</label>
+        <input type="text"  [(ngModel)] ="form.name" placeholder="Name" class="form-control">
+    </div>
+    <div class="col-md-5">
+        <div class="form-group mt-3">
+            <label for="gender">Gender  </label>
+            <br />
+            <input type="radio" value="m" id="gender" name="gender" [(ngModel)] ="form.gender"> Male
+            <input type="radio" value="f" id="gender" name="gender" [(ngModel)] ="form.gender"> Female
+          </div>
+    </div>
+</div>
+<div class="text-center">
+    <input type="file" class="form-control mt-4" [(ngModel)]="form.images" (change)="onFileSelected($event)">
+    <button class="btn btn-success mt-3" value="upload" (click)="onUpload()">upload</button>
+</div>
+

@@ -1,0 +1,43 @@
+<div class="form">
+    <h2>Registration Form</h2>
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter Name" formControlName="name">
+
+        <div class="valid" 
+            *ngIf="regForm.get('name').touched && 
+            regForm.get('name').hasError('required')">Name is Required</div>
+        <div class="valid" 
+            *ngIf="regForm.get('name').touched && 
+            regForm.get('name').hasError('minlength')">Name should be minimum 6 characters</div>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email" formControlName="email">
+
+        <div class="valid" 
+        *ngIf="regForm.get('email').touched && 
+        regForm.get('email').hasError('required')">Email is Required</div>
+        <div class="valid" 
+        *ngIf="regForm.get('email').touched && 
+        regForm.get('email').hasError('email')">Enter the correct emaill address</div>
+
+        <label for="mobile">Mobile</label>
+        <input type="text" id="mobile" placeholder="Enter Mobile Number" formControlName="mobile">
+
+        <div class="valid" 
+        *ngIf="regForm.get('mobile').touched && 
+        regForm.get('mobile').hasError('required')">Email is Required</div>
+
+        <div formArrayName="address">
+            <ng-container *ngFor="let number of regForm.get('address')['controls']; index as i">
+                <label for="address">Address{{i+1}}</label><br>
+                <input type="text" id="address" placeholder="Enter Address" formControlName="{{i}}">
+                <button class="btn btn-danger mt-1" (click)="delete(i)">delete</button>
+            </ng-container><br>
+            <button class="btn btn-secondary mt-2" (click)="add()">+Add Skills</button>
+        </div>
+
+        <input type="submit" id="submit" value="submit" [disabled]="!regForm.valid">
+        
+    </form>
+</div>

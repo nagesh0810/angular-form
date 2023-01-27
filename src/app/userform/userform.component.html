@@ -1,0 +1,39 @@
+<form action="" class="form">
+    <h1 class="text">Login Form</h1>
+    <div>
+        <label class="form-label"> Username: </label>
+        <input 
+        type="email" 
+        required 
+        minlength="6" 
+        class="form-control w-80 m-2 mb-4" 
+        ngModel
+        name="username"
+        #u="ngModel" placeholder="Enter Username">
+    </div>
+
+    <ng-container *ngIf="u.touched">
+        <p class="err-msg" *ngIf="u.errors?.['required']">Username is required</p>
+        <p class="err-msg" *ngIf="u.errors?.['minlength']">Username contains minimum 6 characters</p>
+    </ng-container>
+    
+    <div>
+        <label class="m-2">Password: </label>
+        <input 
+        type="text" 
+        required minlength="6" 
+        class="form-control w-80 m-2 mb-2" 
+        ngModel
+        name="password"
+        #p="ngModel">
+    </div>
+    <ng-container *ngIf="u.touched">
+        <p class="err-msg" *ngIf="p.errors?.['required']">Password is required</p>
+        <p class="err-msg" *ngIf="p.errors?.['minlength']">Password contains minimum 6 characters</p>
+    </ng-container>
+    <button (click)="show(u,p)" class="btn btn-primary">submit</button>
+</form>
+
+
+
+  

@@ -1,0 +1,18 @@
+.err-msg{
+    color: red;
+}
+.form{
+    padding: 40px;
+    background-color: hwb(194 0% 0%);
+    width: 70%;
+    height: 700px;
+    border-radius: 10px;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.h1{
+    justify-content: center;
+    margin-left: 150px;
+    color: orangered;
+}
